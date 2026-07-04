@@ -44,11 +44,15 @@ def multiplication():
 
 def division():
     number1=float(input("Enter the number you want to divide :"))
-    number2=float(input("Enter the number you want to divide with :"))
+    while True:
+        number2=float(input("Enter the number you want to divide with :"))
+        if number2==0:
+            print("Can not divide by Zero.")
+        else:
+            division= number1/number2
+            print(f"The division of {number1} by {number2} :{division:.5f}")
+            break
 
-    division= number1/number2
-
-    print(f"The division of {number1} by {number2} :{division:.5f}")
 
 def calculator():
     while True:
