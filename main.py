@@ -1,74 +1,79 @@
+import colorama
+from colorama import Fore, Back, Style
+
+colorama.init()
+
 def user_menu():
-    print("Enter the operation that you want to peform.\n" \
+    print(Fore.GREEN + "Enter the operation that you want to peform.\n" \
     "1 : ADDITION\n" \
     "2 : SUBTRACTION\n" \
     "3 : MULTIPLICATION\n" \
     "4 : DIVISION\n"
-    "5 : EXIT.")
+    "5 : EXIT." + Fore.RESET)
 
 def user_input():
     valid_choices={1,2,3,4,5}
     while True:
         try:
-            user_choice=float(input("Enter your choice:"))
+            user_choice=float(input(Fore.BLUE +"Enter your choice:"+Fore.RESET))
             if user_choice in valid_choices:
                 return user_choice
             else:
-                print("Please enter a valid choice.")
+                print(Fore.RED + "Please enter a valid choice."+Fore.RESET)
         except ValueError:
-            print("Please enter a valid option from menu.")
+            print(Fore.RED+"Please enter a valid option from menu." + Fore.RESET)
     
                 
 def addition():
     while True:
         try:
-            numbers=list(map(float,input("Enter the numbers that you want to add separated by spaces :").split()))
+            numbers=list(map(float,input(Fore.BLUE+"Enter the numbers that you want to add separated by spaces :"+Fore.RESET).split()))
             sum=0
             for i in numbers:
                 sum+=i
-            print(f"The sum of your numbers is: {sum}")
+            print(Fore.YELLOW + f"The sum of your numbers is: {sum}" + Fore.RESET)
             break
         except ValueError:
-            print("Please enter valid numbers.")
+            print(Fore.RED + "Please enter valid numbers."+Fore.RESET)
 
 
 def substraction():
     while True:
         try:
-            number1=float(input("Enter the first number :"))
-            number2=float(input("Enter the number to substract from first number:"))
+            number1=float(input(Fore.BLUE+"Enter the first number :"+Fore.RESET))
+            number2=float(input(Fore.BLUE+"Enter the number to substract from first number:"+Fore.RESET))
 
             difference=number1-number2
-            print(f"The substraction of {number1} by {number2} :{difference:.5f}")
+            print(Fore.YELLOW+f"The substraction of {number1} by {number2} :{difference:.5f}"+Fore.RESET)
             break
         except ValueError:
-            print("Please enter valid numbers.")
+            print(Fore.RED+"Please enter valid numbers."+Fore.RESET)
 
 def multiplication():
     while True:
         try:
-            numbers_prod=list(map(float,input("Enter the numbers that you want to multiply separated by spaces :").split()))
+            numbers_prod=list(map(float,input(Fore.BLUE+"Enter the numbers that you want to multiply separated by spaces :"+Fore.RESET).split()))
             prod=1
             for i in numbers_prod:
                 prod *=i 
-            print(f"The product of your numbers is: {prod}")
+            print(Fore.YELLOW+f"The product of your numbers is: {prod}"+Fore.RESET)
             break
         except ValueError:
-            print("Please enter valid numbers.")
+            print(Fore.RED+"Please enter valid numbers."+Fore.RESET)
 
 
 def division():
     while True:
         try:
-            number1=float(input("Enter the number you want to divide :"))
-            number2=float(input("Enter the number you want to divide with :"))
+            number1=float(input(Fore.BLUE+"Enter the number you want to divide :"+Fore.RESET))
+            number2=float(input(Fore.BLUE+"Enter the number you want to divide with :"+Fore.RESET))
             division= number1/number2
-            print(f"The division of {number1} by {number2} :{division:.5f}")
+            print(Fore.YELLOW+f"The division of {number1} by {number2} :{division:.5f}"+Fore.RESET)
             break
         except ZeroDivisionError:
-            print("Can not divide by Zero.")
+            print(Fore.RED+"Can not divide by Zero."+Fore.RESET)
         except ValueError:
-            print("Please enter a valid number.")
+            print(Fore.RED+"Please enter a valid number."+Fore.RESET)
       
 def calculator():
     while True:
@@ -83,7 +88,7 @@ def calculator():
         elif user_choice==4:
             division()
         elif user_choice==5:
-            print("Thanks for using...")
+            print(Fore.GREEN+"Thanks for using..."+Fore.RESET)
             break
     
 if __name__== "__main__":
