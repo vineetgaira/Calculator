@@ -19,21 +19,23 @@ def user_input():
             print("Please enter a valid option from menu.")
     
                 
-def addition(user_choice):
-    if user_choice==1:
-        numbers=list(map(int,input("Enter the number that you want to add separated by spaces :").split()))
+def addition():
+
+    numbers=list(map(int,input("Enter the numbers that you want to add separated by spaces :").split()))
     sum=0
     for i in numbers:
         sum+=i
     print(f"The sum of your numbers is: {sum}")
-    return sum 
-    
 
 def subtraction():
     pass
 
 def multiplication():
-    pass
+    numbers_prod=list(map(int,input("Enter the numbers that you want to multiply separated by spaces :").split()))
+    prod=1
+    for i in numbers_prod:
+       prod *=i 
+    print(f"The product of your numbers is: {prod}")
 
 def division():
     pass
@@ -42,9 +44,13 @@ def calculator():
     while True:
         user_menu()
         user_choice=user_input()
-        if user_choice==5:
+        if user_choice==1:
+            addition()
+        elif user_choice==3:
+            multiplication()
+        elif user_choice==5:
             print("Thanks for using...")
             break
-        addition(user_choice)
     
-calculator()
+if __name__== "__main__":
+    calculator()
