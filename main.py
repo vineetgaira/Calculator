@@ -15,7 +15,7 @@ def user_input():
     valid_choices={1,2,3,4,5}
     while True:
         try:
-            user_choice=float(input(Fore.BLUE +"Enter your choice:"+Fore.RESET))
+            user_choice=int(input(Fore.BLUE +"Enter your choice:"+Fore.RESET))
             if user_choice in valid_choices:
                 return user_choice
             else:
@@ -28,23 +28,23 @@ def addition():
     while True:
         try:
             numbers=list(map(float,input(Fore.BLUE+"Enter the numbers that you want to add separated by spaces :"+Fore.RESET).split()))
-            sum=0
+            total=0
             for i in numbers:
-                sum+=i
-            print(Fore.YELLOW + f"The sum of your numbers is: {sum}" + Fore.RESET)
+                total+=i
+            print(Fore.YELLOW + f"The sum of your numbers is: {total}" + Fore.RESET)
             break
         except ValueError:
             print(Fore.RED + "Please enter valid numbers."+Fore.RESET)
 
 
-def substraction():
+def subtraction():
     while True:
         try:
             number1=float(input(Fore.BLUE+"Enter the first number :"+Fore.RESET))
             number2=float(input(Fore.BLUE+"Enter the number to substract from first number:"+Fore.RESET))
 
             difference=number1-number2
-            print(Fore.YELLOW+f"The substraction of {number1} by {number2} :{difference:.5f}"+Fore.RESET)
+            print(Fore.YELLOW+f"The subtraction of {number1} by {number2} :{difference:.5f}"+Fore.RESET)
             break
         except ValueError:
             print(Fore.RED+"Please enter valid numbers."+Fore.RESET)
@@ -82,7 +82,7 @@ def calculator():
         if user_choice==1:
             addition()
         elif user_choice==2:
-            substraction()
+            subtraction()
         elif user_choice==3:
             multiplication()
         elif user_choice==4:
