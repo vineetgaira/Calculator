@@ -28,9 +28,10 @@ def addition():
     while True:
         try:
             numbers=list(map(float,input(Fore.BLUE+"Enter the numbers that you want to add separated by spaces :"+Fore.RESET).split()))
-            total=0
-            for i in numbers:
-                total+=i
+            if not numbers:
+                print(Fore.RED+"You didn't enter any numbers. Please try again."+Fore.RESET)
+                continue
+            total=sum(numbers)
             print(Fore.YELLOW + f"The sum of your numbers is: {total}" + Fore.RESET)
             break
         except ValueError:
@@ -53,6 +54,9 @@ def multiplication():
     while True:
         try:
             numbers_prod=list(map(float,input(Fore.BLUE+"Enter the numbers that you want to multiply separated by spaces :"+Fore.RESET).split()))
+            if not numbers_prod:
+                print(Fore.RED+"You didn't enter any numbers. Please try again.")
+                continue
             prod=1
             for i in numbers_prod:
                 prod *=i 
