@@ -5,10 +5,10 @@ colorama.init()
 
 def user_menu():
     print(Fore.GREEN + "Enter the operation that you want to peform.\n" \
-    "1 : ADDITION\n" \
-    "2 : SUBTRACTION\n" \
-    "3 : MULTIPLICATION\n" \
-    "4 : DIVISION\n"
+    "1 : ADD\n" \
+    "2 : SUB\n" \
+    "3 : MULTIPLY\n" \
+    "4 : DIVIDE\n"
     "5 : EXIT." + Fore.RESET)
 
 def user_input():
