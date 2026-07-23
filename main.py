@@ -9,10 +9,11 @@ def user_menu():
     "2 : SUB\n" \
     "3 : MULTIPLY\n" \
     "4 : DIVIDE\n"
-    "5 : EXIT." + Fore.RESET)
+    "5 : PERCENTAGE\n"
+    "6 : EXIT." + Fore.RESET)
 
 def user_input():
-    valid_choices={1,2,3,4,5}
+    valid_choices={1,2,3,4,5,6}
     while True:
         try:
             user_choice=int(input(Fore.BLUE +"Enter your choice:"+Fore.RESET))
@@ -78,8 +79,23 @@ def division():
             print(Fore.RED+"Can not divide by Zero."+Fore.RESET)
         except ValueError:
             print(Fore.RED+"Please enter a valid number."+Fore.RESET)
+
+def percentage():
+    while True:
+        try:
+            actual_yield=float(input(Fore.BLUE+"Enter actual yield  :"+Fore.RESET))
+            theoritical_yield=float(input(Fore.BLUE+"Enter theoritical yield :"+Fore.RESET))
+            percentage = (actual_yield/theoritical_yield)*100
+            print(Fore.YELLOW+f"Percentage: {percentage}%"+Fore.RESET)
+            break
+        except ZeroDivisionError:
+            print(Fore.RED+"Theoritical yield can not be Zero."+Fore.RESET)
+        except ValueError:
+            print(Fore.RED+"Please enter a valid number."+Fore.RESET)
+
       
 def calculator():
+    clear_screen()
     while True:
         user_menu()
         user_choice=user_input()
@@ -92,6 +108,8 @@ def calculator():
         elif user_choice==4:
             division()
         elif user_choice==5:
+            percentage()
+        elif user_choice==6:
             print(Fore.GREEN+"Thanks for using..."+Fore.RESET)
             break
     
