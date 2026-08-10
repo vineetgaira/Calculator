@@ -4,13 +4,16 @@ colorama.init(autoreset=True)
 from utils import clear_screen
 
 def user_menu():
-    print(Fore.GREEN + "Enter the operation that you want to peform.\n" \
-    "1 : ADD\n" \
-    "2 : SUB\n" \
-    "3 : MULTIPLY\n" \
-    "4 : DIVIDE\n"
-    "5 : PERCENTAGE\n"
-    "6 : EXIT.")
+    print(Fore.MAGENTA + "="*40)
+    print("         CALCULATOR")
+    print(Fore.MAGENTA + "="*40)
+
+    print(Fore.WHITE + " [1] ", Fore.LIGHTCYAN_EX + "ADD" )
+    print(Fore.WHITE + " [2] ", Fore.LIGHTCYAN_EX + "SUB" )
+    print(Fore.WHITE + " [3] ", Fore.LIGHTCYAN_EX + "MUL" )
+    print(Fore.WHITE + " [4] ", Fore.LIGHTCYAN_EX + "DIVISION" )
+    print(Fore.WHITE + " [5] ", Fore.LIGHTCYAN_EX + "PERCENTAGE" )
+    print(Fore.WHITE + " [6] ", Fore.RED + "EXIT" )
 
 def user_input():
     valid_choices={1,2,3,4,5,6}
@@ -70,8 +73,8 @@ def multiplication():
 def division():
     while True:
         try:
-            number1=float(input(Fore.BLUE+"Enter the number you want to divide" ))
-            number2=float(input(Fore.BLUE+"Enter the number you want to divide with" ))
+            number1=float(input(Fore.BLUE+"Enter the number you want to divide: " ))
+            number2=float(input(Fore.BLUE+"Enter the number you want to divide with: " ))
             division= number1/number2
             print(Fore.YELLOW+f"The division of {number1} by {number2} :{division:.5f}")
             break
@@ -96,8 +99,6 @@ def percentage():
       
 def calculator():
     while True:
-        input(Fore.GREEN+">>Press ENTER to continue")
-        clear_screen()
         user_menu()
         user_choice=user_input()
         if user_choice==1:
