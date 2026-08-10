@@ -1,7 +1,18 @@
 import colorama
 from colorama import Fore
 colorama.init(autoreset=True)
-from utils import clear_screen
+from utils import clear_screen, show_error
+
+
+
+menu_choices = {
+    1: "add", 
+    2: "sub",
+    3: "mul",
+    4: "div",
+    5: "percentage",
+    6: "exit"
+}
 
 def user_menu():
     print(Fore.MAGENTA + "="*40)
@@ -15,17 +26,17 @@ def user_menu():
     print(Fore.WHITE + " [5] ", Fore.LIGHTCYAN_EX + "PERCENTAGE" )
     print(Fore.WHITE + " [6] ", Fore.RED + "EXIT" )
 
-def user_input():
-    valid_choices={1,2,3,4,5,6}
+def user_input(options, prompt):
+    valid_choices=set(options.keys())
     while True:
         try:
-            user_choice=int(input(Fore.BLUE +"Enter your choice:"))
+            user_choice=int(input(Fore.BLUE +prompt))
             if user_choice in valid_choices:
-                return user_choice
+                return options[user_choice]
             else:
-                print(Fore.RED + "Please enter a valid choice.")
+                show_error("Please enter a valid choice.")
         except ValueError:
-            print(Fore.RED+"Please enter a valid option from menu."  )
+            show_error("Please enter a valid option from menu.")
     
                 
 def addition():
@@ -33,13 +44,13 @@ def addition():
         try:
             numbers=list(map(float,input(Fore.BLUE+"Enter the numbers that you want to add separated by spaces :").split()))
             if not numbers:
-                print(Fore.RED+"You didn't enter any numbers. Please try again.")
+                show_error("You didn't enter any numbers. Please try again.")
                 continue
             total=sum(numbers)
             print(Fore.YELLOW + f"The sum of your numbers is: {total}"  )
             break
         except ValueError:
-            print(Fore.RED + "Please enter valid numbers.")
+            show_error("Please enter valid numbers.")
 
 
 def subtraction():
@@ -52,14 +63,14 @@ def subtraction():
             print(Fore.YELLOW+f"The subtraction of {number1} by {number2} :{difference:.5f}")
             break
         except ValueError:
-            print(Fore.RED+"Please enter valid numbers.")
+            show_error("Pplease enter valid numbers.")
 
 def multiplication():
     while True:
         try:
             numbers_prod=list(map(float,input(Fore.BLUE+"Enter the numbers that you want to multiply separated by spaces :").split()))
             if not numbers_prod:
-                print(Fore.RED+"You didn't enter any numbers. Please try again.")
+                show_error("You did not enter any numbers, try again.")
                 continue
             prod=1
             for i in numbers_prod:
@@ -67,7 +78,7 @@ def multiplication():
             print(Fore.YELLOW+f"The product of your numbers is: {prod}")
             break
         except ValueError:
-            print(Fore.RED+"Please enter valid numbers.")
+            show_error("Please enter valid numbers.")
 
 
 def division():
@@ -79,9 +90,9 @@ def division():
             print(Fore.YELLOW+f"The division of {number1} by {number2} :{division:.5f}")
             break
         except ZeroDivisionError:
-            print(Fore.RED+"Can not divide by Zero")
+            show_error("Can not divide by Zero")
         except ValueError:
-            print(Fore.RED+"Please enter a valid number")
+            show_error("Please enter valid numbers.")
 
 def percentage():
     while True:
@@ -92,29 +103,31 @@ def percentage():
             print(Fore.YELLOW+f"Percentage: {percentage}%")
             break
         except ZeroDivisionError:
-            print(Fore.RED+"Theoritical yield can not be Zero.")
+            show_error("Theoritical yield can not be Zero.")
         except ValueError:
-            print(Fore.RED+"Please enter a valid number.")
+            show_error("Please enter a valid number.")
 
+action = {
+    "add": addition,
+    "sub": subtraction,
+    "mul": multiplication,
+    "div": division,
+    "percentage": percentage,
+}
       
 def calculator():
     while True:
         user_menu()
-        user_choice=user_input()
-        if user_choice==1:
-            addition()
-        elif user_choice==2:
-            subtraction()
-        elif user_choice==3:
-            multiplication()
-        elif user_choice==4:
-            division()
-        elif user_choice==5:
-            percentage()
-        elif user_choice==6:
-            print(Fore.GREEN+"Thanks for using...")
-            break
-    
+        user_choice=user_input(menu_choices, "Enter your choice: ")
+        if user_choice == "exit":
+            print(Fore.GREEN + "Thanks for using...")
+            return
+        else:
+            fn = action[user_choice]
+            fn()
+            input(Fore.MAGENTA + "Press [Enter] to return to main menu.")
+            clear_screen()
+
 if __name__== "__main__":
     calculator()
             
