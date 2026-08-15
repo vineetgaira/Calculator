@@ -2,6 +2,7 @@ import colorama
 from colorama import Fore
 colorama.init(autoreset=True)
 from utils import clear_screen, show_error
+import math
 
 
 
@@ -11,7 +12,8 @@ menu_choices = {
     3: "mul",
     4: "div",
     5: "percentage",
-    6: "exit"
+    6: "sqrt",
+    7: "exit"
 }
 
 def user_menu():
@@ -24,7 +26,8 @@ def user_menu():
     print(Fore.WHITE + " [3] ", Fore.LIGHTCYAN_EX + "MUL" )
     print(Fore.WHITE + " [4] ", Fore.LIGHTCYAN_EX + "DIVISION" )
     print(Fore.WHITE + " [5] ", Fore.LIGHTCYAN_EX + "PERCENTAGE" )
-    print(Fore.WHITE + " [6] ", Fore.RED + "EXIT" )
+    print(Fore.WHITE + " [6] ", Fore.LIGHTCYAN_EX + "SQUARE ROOT" )
+    print(Fore.WHITE + " [7] ", Fore.RED + "EXIT" )
 
 def user_input(options, prompt):
     valid_choices=set(options.keys())
