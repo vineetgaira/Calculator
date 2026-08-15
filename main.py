@@ -116,7 +116,7 @@ def square_root():
             number=float(input(Fore.BLUE+"Enter the number to find sqrt of: "))
             if number > 0:
                 square_root = math.sqrt(number)
-                print(Fore.YELLOW+f"Square root: {round(square_root, 5)}%")
+                print(Fore.YELLOW+f"Square root: {round(square_root, 5)}")
                 break
             else:
                 show_error("Number must be non-zero.")
