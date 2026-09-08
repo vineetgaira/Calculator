@@ -127,18 +127,12 @@ def exponent(number, exponent):
     while True:
         try:
             number=float(input(Fore.BLUE+"Enter the number to find exponent of: "))
-            if number > 0:
-                square_root = math.sqrt(number)
-                print(Fore.YELLOW+f"Square root: {round(square_root, 5)}")
-                break
-            else:
-                show_error("Number must be non-zero.")
+            exponent = float(input(Fore.BLUE + "Enter the exponent: "))
+            exponent = math.exp(number)
+            print(Fore.YELLOW+f"Exponent: {round(exponent, 5)}")
+            break
         except ValueError:
             show_error("Please enter a valid number.")
-
-
-
-    
 
 action = {
     "add": addition,
