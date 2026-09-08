@@ -13,7 +13,8 @@ menu_choices = {
     4: "div",
     5: "percentage",
     6: "sqrt",
-    7: "exit"
+    7: "exponent",
+    8: "exit"
 }
 
 def user_menu():
@@ -83,7 +84,6 @@ def multiplication():
         except ValueError:
             show_error("Please enter valid numbers.")
 
-
 def division():
     while True:
         try:
@@ -122,13 +122,18 @@ def square_root():
                 show_error("Number must be non-zero.")
         except ValueError:
             show_error("Please enter a valid number.")
+
+    def exponent(nubmer):
+        pass
+    
 action = {
     "add": addition,
     "sub": subtraction,
     "mul": multiplication,
     "div": division,
     "percentage": percentage,
-    "sqrt" : square_root
+    "sqrt" : square_root,
+    "exponent": exponent
 }
       
 def calculator():
