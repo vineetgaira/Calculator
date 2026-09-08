@@ -8,13 +8,16 @@ A simple, colorful command-line calculator built with Python and `colorama`. Sup
 
 ```
    ┌────────────────────────────────┐
-   │        CLI CALCULATOR         │
+   │        CLI CALCULATOR          │
    ├────────────────────────────────┤
-   │  1 : ADD                      │
-   │  2 : SUB                      │
-   │  3 : MULTIPLY                 │
-   │  4 : DIVIDE                   │
-   │  5 : EXIT                     │
+   │  1 : ADD                       │
+   │  2 : SUB                       │
+   │  3 : MULTIPLY                  │
+   │  4 : DIVIDE                    |
+   |  5 : PERCENTAGE                |
+   |  6 : SQUARE ROOT               |
+   |  7 : EXPONENT                  │ 
+   │  8 : EXIT                      │
    └────────────────────────────────┘
         Enter your choice: _
 ```
@@ -29,6 +32,7 @@ A simple, colorful command-line calculator built with Python and `colorama`. Sup
 | ➖ **Subtraction** | Subtract one number from another |
 | ✖️ **Multiplication** | Multiply any number of values, separated by spaces |
 | ➗ **Division** | Divide two numbers, with divide-by-zero protection |
+|  % **Pecentage** | Find percentage of two diffrent numbers|  
 |  √ **Square root** | Find square root of any number |    
 |  ^ **Exponent** | Find exponent of any number.|  
 | 🎨 **Colored Output** | Uses `colorama` to color prompts, errors, and results |
