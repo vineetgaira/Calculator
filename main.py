@@ -123,9 +123,23 @@ def square_root():
         except ValueError:
             show_error("Please enter a valid number.")
 
-    def exponent(nubmer):
-        pass
+def exponent(number, exponent):
+    while True:
+        try:
+            number=float(input(Fore.BLUE+"Enter the number to find exponent of: "))
+            if number > 0:
+                square_root = math.sqrt(number)
+                print(Fore.YELLOW+f"Square root: {round(square_root, 5)}")
+                break
+            else:
+                show_error("Number must be non-zero.")
+        except ValueError:
+            show_error("Please enter a valid number.")
+
+
+
     
+
 action = {
     "add": addition,
     "sub": subtraction,
