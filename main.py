@@ -28,7 +28,8 @@ def user_menu():
     print(Fore.WHITE + " [4] ", Fore.LIGHTCYAN_EX + "DIVISION" )
     print(Fore.WHITE + " [5] ", Fore.LIGHTCYAN_EX + "PERCENTAGE" )
     print(Fore.WHITE + " [6] ", Fore.LIGHTCYAN_EX + "SQUARE ROOT" )
-    print(Fore.WHITE + " [7] ", Fore.RED + "EXIT" )
+    print(Fore.WHITE + " [7] ", Fore.LIGHTCYAN_EX + "EXPONENT" )
+    print(Fore.WHITE + " [8] ", Fore.RED + "EXIT" )
 
 def user_input(options, prompt):
     valid_choices=set(options.keys())
@@ -123,12 +124,12 @@ def square_root():
         except ValueError:
             show_error("Please enter a valid number.")
 
-def exponent(number, exponent):
+def exponent():
     while True:
         try:
             number=float(input(Fore.BLUE+"Enter the number to find exponent of: "))
             exponent = float(input(Fore.BLUE + "Enter the exponent: "))
-            exponent = math.exp(number)
+            exponent = number ** exponent
             print(Fore.YELLOW+f"Exponent: {round(exponent, 5)}")
             break
         except ValueError:
