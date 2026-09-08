@@ -29,6 +29,8 @@ A simple, colorful command-line calculator built with Python and `colorama`. Sup
 | ➖ **Subtraction** | Subtract one number from another |
 | ✖️ **Multiplication** | Multiply any number of values, separated by spaces |
 | ➗ **Division** | Divide two numbers, with divide-by-zero protection |
+|  √ **Square root** | Find square root of any number |    
+|  ^ **Exponent** | Find exponent of any number.|  
 | 🎨 **Colored Output** | Uses `colorama` to color prompts, errors, and results |
 | 🛡️ **Input Validation** | Handles invalid input gracefully with retry loops |
 | 🔁 **Menu Loop** | Returns to the main menu after every operation until exit |
